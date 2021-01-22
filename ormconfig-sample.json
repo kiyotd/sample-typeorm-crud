@@ -1,0 +1,24 @@
+{
+   "type": "",
+   "host": "localhost",
+   "port": 5432,
+   "username": "",
+   "password": "",
+   "database": "",
+   "synchronize": true,
+   "logging": true,
+   "entities": [
+      "dist/entity/**/*.js"
+   ],
+   "migrations": [
+      "dist/migration/**/*.js"
+   ],
+   "subscribers": [
+      "dist/subscriber/**/*.js"
+   ],
+   "cli": {
+      "entitiesDir": "js/entity",
+      "migrationsDir": "js/migration",
+      "subscribersDir": "js/subscriber"
+   }
+}
