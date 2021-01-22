@@ -40,18 +40,24 @@ exports.deleteUser = exports.updateUser = exports.getUser = exports.createUser =
 var typeorm_1 = require("typeorm");
 var User_1 = require("../entity/User");
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var users;
+    var users, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, typeorm_1.getRepository(User_1.User).find()];
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, typeorm_1.getRepository(User_1.User).find()];
             case 1:
                 users = _a.sent();
                 return [2 /*return*/, res.json(users)];
+            case 2:
+                e_1 = _a.sent();
+                return [2 /*return*/, res.json(e_1)];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.createUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newUser, result, e_1;
+    var newUser, result, e_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -64,14 +70,14 @@ exports.createUser = function (req, res) { return __awaiter(void 0, void 0, void
                 result = _a.sent();
                 return [2 /*return*/, res.json(result)];
             case 3:
-                e_1 = _a.sent();
-                return [2 /*return*/, res.json(e_1)];
+                e_2 = _a.sent();
+                return [2 /*return*/, res.json(e_2)];
             case 4: return [2 /*return*/];
         }
     });
 }); };
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, e_2;
+    var user, e_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -79,16 +85,19 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 return [4 /*yield*/, typeorm_1.getRepository(User_1.User).findOne(req.params.id)];
             case 1:
                 user = _a.sent();
-                return [2 /*return*/, res.json(user)];
+                if (user) {
+                    return [2 /*return*/, res.json(user)];
+                }
+                return [2 /*return*/, res.status(404).json({ "message": "Not User Found" })];
             case 2:
-                e_2 = _a.sent();
-                return [2 /*return*/, res.json(e_2)];
+                e_3 = _a.sent();
+                return [2 /*return*/, res.json(e_3)];
             case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, result, e_3;
+    var user, result, e_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -104,20 +113,26 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [2 /*return*/, res.json(result)];
             case 3: return [2 /*return*/, res.status(404).json({ "message": "Not User Found" })];
             case 4:
-                e_3 = _a.sent();
-                return [2 /*return*/, res.json(e_3)];
+                e_4 = _a.sent();
+                return [2 /*return*/, res.json(e_4)];
             case 5: return [2 /*return*/];
         }
     });
 }); };
 exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
+    var result, e_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, typeorm_1.getRepository(User_1.User).delete(req.params.id)];
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, typeorm_1.getRepository(User_1.User).delete(req.params.id)];
             case 1:
                 result = _a.sent();
                 return [2 /*return*/, res.json(result)];
+            case 2:
+                e_5 = _a.sent();
+                return [2 /*return*/, res.json(e_5)];
+            case 3: return [2 /*return*/];
         }
     });
 }); };

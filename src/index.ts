@@ -1,15 +1,15 @@
 // import "reflect-metadata";
 
-import express from "express";
+import express, { Express } from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { createConnection } from "typeorm";
 
 import userRoutes from "./routes/user.routes";
 
-const PORT = 3000;
+const PORT: number = 3000;
 
-const app = express();
+const app: Express = express();
 createConnection();
 
 //middleware
@@ -21,6 +21,6 @@ app.use(morgan("dev"));
 //routes
 app.use(userRoutes);
 
-app.listen(PORT, () => {
+app.listen(PORT, (): void => {
   console.log(`http://localhost:${PORT}/`);
 });
